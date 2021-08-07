@@ -1,6 +1,7 @@
 import math
 a, b, v = map(int, input().split())
 
+# 시간초과
 # h = 0
 # d = 1
 #

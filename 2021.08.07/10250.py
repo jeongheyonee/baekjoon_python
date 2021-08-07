@@ -8,3 +8,4 @@ for i in range(t):
             cnt += 1
             if cnt == n:
                 print('{:d}'.format(k)+'{:02d}'.format(j))
+                # 한 자리의 호실일 경우에 0을 추가하여 자릿수를 맞춤

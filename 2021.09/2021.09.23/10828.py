@@ -6,9 +6,39 @@
 # peek(): 스택의 가장 위에 있는 항목을 반환
 # isEmpty(): 스택이 비어 있을 때에 true를 반환
 # https://gmlwjd9405.github.io/2018/08/03/data-structure-stack.html
+import sys
+
+input = sys.stdin.readline
 
 n = int(input())
-li = []
+stack = []
 
 # push일 때만 숫자를 입력 받는 건 어떻게 해야할지?
 for _ in range(n):
+    word = input().split()
+    order = word[0]
+
+    if order == 'push':
+        value = word[1]
+        stack.append(value)
+
+    elif order == 'pop':
+        if len(stack)== 0:
+            print(-1)
+        else:
+            print(stack.pop())
+
+    elif order == 'size':
+        print(len(stack))
+
+    elif order == 'empty':
+        if len(stack) == 0:
+            print(1)
+        else:
+            print(0)
+
+    elif order == 'top':
+        if len(stack) == 0:
+            print(-1)
+        else:
+            print(stack[-1])

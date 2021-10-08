@@ -1,3 +1,5 @@
+# https://tmdrl5779.tistory.com/94
+
 from math import gcd, sqrt
 
 n = int(input())

@@ -1,3 +1,5 @@
+# https://hongcoding.tistory.com/40
+
 import sys
 
 input = sys.stdin.readline
@@ -5,13 +7,12 @@ input = sys.stdin.readline
 n = int(input())
 nge = list(map(int, input().split()))
 result = [-1] * n
+stack = []
 
-for i in range(n):
-    if i == n-1:
-        break
-    for j in range(i+1, n):
-        if nge[i] < nge[j]:
-            result[i] = nge[j]
-            break
+stack.append(0)
+for i in range(1, n):
+    while stack and nge[stack[-1]] < nge[i]:
+        result[stack.pop()] = nge[i]
+    stack.append(i)
 
 print(*result)

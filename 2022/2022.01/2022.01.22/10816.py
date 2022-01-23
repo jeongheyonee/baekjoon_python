@@ -1,3 +1,4 @@
+# https://my-coding-notes.tistory.com/102
 import sys
 
 input = sys.stdin.readline
@@ -6,11 +7,27 @@ n = int(input())
 card = list(map(int, input().split()))
 m = int(input())
 find = list(map(int, input().split()))
-answer = [0] * m
 
-for i in range(m):
-    answer[i] = card.count(find[i])
+card.sort()
 
+def bs(num, bound):
+    start, end = 0, n
+    while(start < end):
+        mid = (start + end) // 2
+        if bound == 0:
+            if card[mid] < num:
+                start = mid + 1
+            else:
+                end = mid
+        else:
+            if card[mid] <= num:
+                start = mid + 1
+            else:
+                end = mid
+    return end
 
-for j in answer:
-    print(j, end=' ')
+answer = []
+
+for i in find:
+    answer.append(bs(i,1) - bs(i,0))
+print(*answer)

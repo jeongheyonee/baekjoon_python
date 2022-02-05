@@ -1,4 +1,6 @@
 import sys
+from collections import deque
+
 
 def dfs(n):
     global cnt
@@ -7,6 +9,19 @@ def dfs(n):
         if not visit[i]:
             cnt+=1
             dfs(i)
+    return cnt
+
+def bfs(n):
+    global cnt
+    visit[n] = True
+    queue = deque([n])
+    while queue:
+        v = queue.popleft()
+        for i in computer[v]:
+            if not visit[i]:
+                queue.append(i)
+                cnt += 1
+                visit[i] = True
     return cnt
 
 input = sys.stdin.readline
@@ -27,3 +42,9 @@ for i in range(1, n+1):
     computer[i].sort()
 
 print(dfs(1))
+
+# bfs로 풀어보기
+visit = [False] * (n+1)
+cnt = 0
+print()
+print(bfs(1))

@@ -2,6 +2,7 @@
 # dfs, bfs로 어떻게 풀지?
 # https://chancoding.tistory.com/61
 # 일단 이해 안 가고 bfs로도 다시 풀어보기!
+# dfs로 내가 코드 짜보고 싶은데....
 
 n = int(input())
 map = [[0]*n for _ in range(n)]

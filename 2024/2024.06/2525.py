@@ -1,12 +1,12 @@
-def timer(n, t):
-    n = n.split()
-    n = [int(i) for i in n]
-    n[1] = n[1] + t
-    if n[1] >= 60:
-        n[1] = n[1] % 60
-        n[0] += n[1] // 60
-    return str(n[0]) + " " + str(n[1])
+n = input()
+n = n.split()
+t = int(input())
 
-print(timer("14 30", 20))
-
-
+n = [int(i) for i in n]
+n[1] = n[1] + t
+if n[1] >= 60:
+    n[0] += (n[1] // 60)
+    if n[0] >= 24:
+        n[0] -= 24
+    n[1] = n[1] % 60
+print(n[0], n[1])
